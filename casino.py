@@ -5,7 +5,7 @@ def main():
     balance = 100
 
     print("╔════════════════════════════╗")
-    print("║          🎲 DICE           ║")
+    print("║          🎲 DICE            ║")
     print("╚════════════════════════════╝")
 
     print(f"You have a balance of £{balance}")
@@ -19,13 +19,13 @@ def main():
             break
     print()
     
-    game = input("Which game would you like to play? \nDice \nCoin Flip \nSlots \nRock Paper Scissors \nExit? ")
+    game = input("Which game would you like to play? \n 1. Dice \n2. Coin Flip \n3. Slots \n4. Rock Paper Scissors \n5. Exit? ")
 
-    if game == "Rock Paper Scissors":
-        rock_paper_scissors()
+    if game == "4":
+        rock_paper_scissors(balance, bet)
     
     
-def rock_paper_scissors():
+def rock_paper_scissors(balance, bet):
     
 
     print()
@@ -34,7 +34,7 @@ def rock_paper_scissors():
     
     print("\n 1. Rock \n 2. Paper \n 3. Scissors")
     
-    choice = int(input("\nEnter your choice please ")) 
+    choice = int(input("\nEnter your choice please "))
     
     while choice > 3 or choice < 1:
         choice = int(input("\nEnter a valid choice please"))
@@ -61,7 +61,7 @@ def rock_paper_scissors():
     
 
     if comp_choice == 1:
-        comp_choice_name = "Rock" 
+        comp_choice_name = "Rock"
     
     elif comp_choice == 2:
         comp_choice_name = "Paper"
@@ -76,12 +76,42 @@ def rock_paper_scissors():
     
     if choice == comp_choice:
         print("It's a draw money returned")
+        print(f"your total balance is {balance}")
 
     elif choice == 1 and comp_choice == 2:
         print("Dealer has won!")
+        balance = balance - bet
+        print(f"you have £{balance} left")
 
+    
+    elif choice == 1 and comp_choice == 3:
+        print("You have won")
+        balance = balance + bet
+        print(f"your total balance has increased, you now hold £{balance}")
+    
+    elif choice == 2 and comp_choice == 1:
+        print("You have won")
+        balance = balance + bet
+        print(f"your total balance has increased, you now hold £{balance}")
+    
+    elif choice == 2 and comp_choice == 3:
+        print("Dealer has won")
+        balance = balance - bet
+        print(f"you have £{balance} left")
+    
+    elif choice == 3 and comp_choice == 1:
+        print("Dealer has won")
+        balance = balance - bet
+        print(f"you have £{balance} left")
+        
+    
+    elif choice == 3 and comp_choice == 2:
+        print("You have won")
+        balance = balance + bet
+        print(f"your total balance has increased, you now hold £{balance}")
     
 
 
-main()
 
+
+main()
