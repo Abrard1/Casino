@@ -76,11 +76,12 @@ def rock_paper_scissors():
     
     if choice == comp_choice:
         print("It's a draw money returned")
-    
-    if choice == 1 and comp_choice == 2:
+
+    elif choice == 1 and comp_choice == 2:
         print("Dealer has won!")
-    
+
     
 
 
 main()
+
